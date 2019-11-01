@@ -3,7 +3,7 @@ package dataaccess;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import models.Note;
+import models.Notes;
 
 /**
  *
@@ -11,7 +11,7 @@ import models.Note;
  */
 public class NoteDB 
 {
-    public int insert(Note note)
+    public int insert(Notes note)
     {
         int r = 0;              
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
@@ -37,7 +37,7 @@ public class NoteDB
         }
     }
     
-    public int update(Note note)
+    public int update(Notes note)
     {
         int r = 0;       
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
@@ -63,12 +63,12 @@ public class NoteDB
         }
     }
     
-    public List<Note> getAll()
+    public List<Notes> getAll()
     {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try
         {
-            List<Note> tempList = em.createNamedQuery("Note.findAll", Note.class).getResultList();
+            List<Notes> tempList = em.createNamedQuery("Note.findAll", Notes.class).getResultList();
             return tempList;
         }
         finally
@@ -77,12 +77,12 @@ public class NoteDB
         }
     }
     
-    public Note get(int noteID)
+    public Notes get(int noteID)
     {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try
         {
-            Note n = em.find(Note.class, noteID);
+            Notes n = em.find(Notes.class, noteID);
             return n;
         }
         finally
@@ -91,7 +91,7 @@ public class NoteDB
         }
     }
     
-    public int delete(Note note)
+    public int delete(Notes note)
     {
         int r = 0;              
         EntityManager em = DBUtil.getEmFactory().createEntityManager();

@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Note;
+import models.Notes;
 
 /**
  *
@@ -20,7 +20,7 @@ public class NoteServlet extends HttpServlet
             throws ServletException, IOException 
     {
         NoteService ns = new NoteService();
-        List<Note> noteList = ns.getAll();
+        List<Notes> noteList = ns.getAll();
         
         request.setAttribute("displayNotes", noteList);
         
@@ -28,7 +28,7 @@ public class NoteServlet extends HttpServlet
         
         if(edit != null)
         {
-            Note n = ns.get(Integer.valueOf(edit));
+            Notes n = ns.get(Integer.valueOf(edit));
             request.setAttribute("note", n);
             
             request.setAttribute("control", "Edit");

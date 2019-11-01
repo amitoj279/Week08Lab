@@ -4,7 +4,7 @@ import dataaccess.NoteDB;
 import dataaccess.NotesDBException;
 import java.util.Date;
 import java.util.List;
-import models.Note;
+import models.Notes;
 
 /**
  *
@@ -12,26 +12,26 @@ import models.Note;
  */
 public class NoteService 
 {
-    public Note get(int noteid)
+    public Notes get(int noteid)
     {
         NoteDB ndb = new NoteDB();
-        Note n = ndb.get(noteid);
+        Notes n = ndb.get(noteid);
         return n;
     }
     
-    public List<Note> getAll()
+    public List<Notes> getAll()
     {
         NoteDB ndb = new NoteDB();
-        List<Note> noteList = ndb.getAll();
+        List<Notes> noteList = ndb.getAll();
         return noteList;
     }
     
     public int update(int noteid, String title, String contents) throws Exception
     {
         NoteDB ndb = new NoteDB();
-        Note temp = ndb.get(noteid);
+        Notes temp = ndb.get(noteid);
         Date d = temp.getDatecreated();
-        Note n = new Note(noteid, d, title, contents);
+        Notes n = new Notes(noteid, d, title, contents);
         int r = ndb.update(n);
         
         if(r == 0)
@@ -45,7 +45,7 @@ public class NoteService
     public int delete(int noteid) throws Exception
     {
         NoteDB ndb = new NoteDB();
-        Note n = ndb.get(noteid);
+        Notes n = ndb.get(noteid);
         int r = ndb.delete(n);
         
         if(r == 0)
@@ -60,7 +60,7 @@ public class NoteService
     {
         NoteDB ndb = new NoteDB();
         Date d = new Date();
-        Note n = new Note(0, d, title, contents);
+        Notes n = new Notes(0, d, title, contents);
         int r = ndb.insert(n);
         
         if(r == 0)
