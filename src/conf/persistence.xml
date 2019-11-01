@@ -3,6 +3,7 @@
   <persistence-unit name="NotesPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>models.Notes</class>
+    <class>models.Note</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <non-jta-data-source>java:/comp/env/jdbc/NotesDB</non-jta-data-source>
   </persistence-unit>

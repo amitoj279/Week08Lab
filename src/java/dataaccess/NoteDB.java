@@ -68,7 +68,7 @@ public class NoteDB
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try
         {
-            List<Notes> tempList = em.createNamedQuery("Note.findAll", Notes.class).getResultList();
+            List<Notes> tempList = em.createNamedQuery("Notes.findAll", Notes.class).getResultList();
             return tempList;
         }
         finally
